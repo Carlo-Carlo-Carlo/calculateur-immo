@@ -1151,35 +1151,35 @@ export default function CalculateurPretImmobilier() {
               </div>
               
               {/* Tableau d'amortissement */}
-              <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-                <h3 className="text-lg font-bold text-slate-900 mb-4">Tableau d'amortissement</h3>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="border-b-2 border-slate-200">
-                        <th className="text-left py-3 px-2 text-slate-600 font-medium">Échéance</th>
-                        <th className="text-right py-3 px-2 text-slate-600 font-medium">Mensualité</th>
-                        <th className="text-right py-3 px-2 text-slate-600 font-medium">Capital</th>
-                        <th className="text-right py-3 px-2 text-slate-600 font-medium">Intérêts</th>
-                        <th className="text-right py-3 px-2 text-slate-600 font-medium">Restant dû</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {resultats.tableau.slice(0, 10).map((ligne, i) => (
-                        <tr key={i} className="border-b border-slate-100 hover:bg-slate-50">
-                          <td className="py-2 px-2 font-medium text-slate-900">
-                            {ligne.mois <= 12 ? `Mois ${ligne.mois}` : `An ${Math.floor(ligne.mois / 12)}`}
-                          </td>
-                          <td className="py-2 px-2 text-right font-semibold">{fmt(ligne.mensualite)}</td>
-                          <td className="py-2 px-2 text-right text-green-600">{fmt(ligne.capital)}</td>
-                          <td className="py-2 px-2 text-right text-orange-600">{fmt(ligne.interets)}</td>
-                          <td className="py-2 px-2 text-right font-medium">{fmt(ligne.capitalRestant)}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+<div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+  <h3 className="text-lg font-bold text-slate-900 mb-4">Tableau d'amortissement</h3>
+  <div className="overflow-x-auto max-h-96 overflow-y-auto">
+    <table className="w-full text-sm">
+      <thead className="sticky top-0 bg-white">
+        <tr className="border-b-2 border-slate-200">
+          <th className="text-left py-3 px-2 text-slate-600 font-medium">Échéance</th>
+          <th className="text-right py-3 px-2 text-slate-600 font-medium">Mensualité</th>
+          <th className="text-right py-3 px-2 text-slate-600 font-medium">Capital</th>
+          <th className="text-right py-3 px-2 text-slate-600 font-medium">Intérêts</th>
+          <th className="text-right py-3 px-2 text-slate-600 font-medium">Restant dû</th>
+        </tr>
+      </thead>
+      <tbody>
+        {resultats.tableau.map((ligne, i) => (
+          <tr key={i} className="border-b border-slate-100 hover:bg-slate-50">
+            <td className="py-2 px-2 font-medium text-slate-900">
+              {ligne.mois <= 12 ? `Mois ${ligne.mois}` : `An ${Math.floor(ligne.mois / 12)}`}
+            </td>
+            <td className="py-2 px-2 text-right font-semibold">{fmt(ligne.mensualite)}</td>
+            <td className="py-2 px-2 text-right text-green-600">{fmt(ligne.capital)}</td>
+            <td className="py-2 px-2 text-right text-orange-600">{fmt(ligne.interets)}</td>
+            <td className="py-2 px-2 text-right font-medium">{fmt(ligne.capitalRestant)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
             </div>
           </div>
         )}
