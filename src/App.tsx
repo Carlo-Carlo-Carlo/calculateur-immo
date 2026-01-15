@@ -1267,7 +1267,7 @@ export default function CalculateurPretImmobilier() {
                 </button>
               </div>
               
-              <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
                 <h3 className="text-lg font-bold text-slate-900 mb-4">Capacité selon la durée</h3>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -1276,6 +1276,7 @@ export default function CalculateurPretImmobilier() {
                         <th className="text-left py-3 px-2 text-slate-600 font-medium">Durée</th>
                         <th className="text-right py-3 px-2 text-slate-600 font-medium">Taux</th>
                         <th className="text-right py-3 px-2 text-slate-600 font-medium">Capital max</th>
+                        <th className="text-right py-3 px-2 text-slate-600 font-medium">Coût crédit</th>
                         <th className="text-right py-3 px-2 text-slate-600 font-medium">Budget total</th>
                       </tr>
                     </thead>
@@ -1285,6 +1286,7 @@ export default function CalculateurPretImmobilier() {
                           <td className="py-3 px-2 font-medium text-slate-900">{ligne.duree} ans</td>
                           <td className="py-3 px-2 text-right text-blue-600 font-medium">{ligne.taux}%</td>
                           <td className="py-3 px-2 text-right font-bold text-slate-900">{fmt(ligne.capital)}</td>
+                          <td className="py-3 px-2 text-right text-orange-600 font-medium">{fmt(ligne.coutCredit)}</td>
                           <td className="py-3 px-2 text-right font-bold text-green-600">{fmt(ligne.budgetTotal)}</td>
                         </tr>
                       ))}
