@@ -1449,7 +1449,83 @@ export default function CalculateurPretImmobilier() {
             </div>
           </div>
         )}
-
+{/* Comparatif Sans PTZ / Avec PTZ */}
+              {simulationPtz && (
+                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">Comparatif de financement</h3>
+                  
+                  <div className="grid sm:grid-cols-2 gap-4 mb-6">
+                    {/* Sans PTZ */}
+                    <div className="bg-slate-50 rounded-xl p-4">
+                      <h4 className="font-semibold text-slate-700 mb-3">Sans PTZ</h4>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span className="text-slate-600">Capital emprunté</span>
+                          <span className="font-semibold">{fmt(simulationPtz.sansPtz.capitalEmprunte)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-slate-600">Mensualité</span>
+                          <span className="font-semibold">{fmt(simulationPtz.sansPtz.mensualite)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-slate-600">Coût des intérêts</span>
+                          <span className="font-semibold text-orange-600">{fmt(simulationPtz.sansPtz.interets)}</span>
+                        </div>
+                        <div className="flex justify-between border-t border-slate-200 pt-2 mt-2">
+                          <span className="text-slate-600">Coût total</span>
+                          <span className="font-bold">{fmt(simulationPtz.sansPtz.coutTotal)}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Avec PTZ */}
+                    <div className="bg-green-50 rounded-xl p-4 border-2 border-green-200">
+                      <h4 className="font-semibold text-green-700 mb-3">Avec PTZ</h4>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span className="text-slate-600">Prêt principal</span>
+                          <span className="font-semibold">{fmt(simulationPtz.avecPtz.capitalPrincipal)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-slate-600">PTZ (0%)</span>
+                          <span className="font-semibold text-green-600">{fmt(simulationPtz.avecPtz.montantPtz)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-slate-600">Mensualité (pendant différé)</span>
+                          <span className="font-semibold">{fmt(simulationPtz.avecPtz.mensPendantDiffere)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-slate-600">Mensualité (après différé)</span>
+                          <span className="font-semibold">{fmt(simulationPtz.avecPtz.mensApresDiffere)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-slate-600">Coût des intérêts</span>
+                          <span className="font-semibold text-orange-600">{fmt(simulationPtz.avecPtz.interets)}</span>
+                        </div>
+                        <div className="flex justify-between border-t border-green-200 pt-2 mt-2">
+                          <span className="text-slate-600">Coût total</span>
+                          <span className="font-bold">{fmt(simulationPtz.avecPtz.coutTotal)}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Économies */}
+                  <div className="bg-gradient-to-r from-green-100 to-emerald-100 rounded-xl p-4">
+                    <h4 className="font-semibold text-green-800 mb-2">Vos économies avec le PTZ</h4>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-sm text-green-700">Économie sur les intérêts</p>
+                        <p className="text-2xl font-bold text-green-600">{fmt(simulationPtz.economies.interets)}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-green-700">Économie mensuelle initiale</p>
+                        <p className="text-2xl font-bold text-green-600">{fmt(simulationPtz.economies.mensuelleInitiale)}/mois</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
         {/* Footer explicatif */}
         <footer className="mt-12 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
           <h2 className="text-lg font-bold text-slate-900 mb-3">
