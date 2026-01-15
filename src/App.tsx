@@ -1450,7 +1450,6 @@ export default function CalculateurPretImmobilier() {
               </div>
             </div>
           </div>
-        )}
 {/* Comparatif Sans PTZ / Avec PTZ */}
               {simulationPtz && (
                 <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
@@ -1527,7 +1526,10 @@ export default function CalculateurPretImmobilier() {
                     </div>
                   </div>
                 </div>
-              )}
+            )}
+            </div>
+          </div>
+        )}
         {/* Footer explicatif */}
         <footer className="mt-12 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
           <h2 className="text-lg font-bold text-slate-900 mb-3">
