@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { Calculator, Wallet, Home, Download, TrendingUp, AlertCircle, CheckCircle, Info } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import { Calculator, Wallet, Home, TrendingUp, AlertCircle, CheckCircle, Info } from 'lucide-react';
 
 // ============================================================================
 // BARÈMES PTZ 2026 - Mis à jour selon PLF 2026
