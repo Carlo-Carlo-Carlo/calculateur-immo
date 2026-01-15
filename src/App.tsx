@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Calculator, Wallet, Home, TrendingUp, AlertCircle, CheckCircle, Info, Send, Phone, Mail, MapPin, Clock, Shield, X } from 'lucide-react';
+import { Calculator, Wallet, Home, TrendingUp, AlertCircle, CheckCircle, Info, X } from 'lucide-react';
 
 // ============================================================================
 // BARÈMES PTZ 2026 - Mis à jour selon PLF 2026
@@ -55,19 +55,12 @@ const GRILLE_TAUX = {
 
 // ============================================================================
 // GOOGLE SHEETS WEBHOOK URL
-// Instructions pour configurer :
-// 1. Créer un Google Sheet
-// 2. Extensions > Apps Script
-// 3. Coller le code doPost (voir README)
-// 4. Déployer en tant qu'application web
-// 5. Coller l'URL ici
 // ============================================================================
 const GOOGLE_SHEET_WEBHOOK_URL = "VOTRE_URL_GOOGLE_APPS_SCRIPT_ICI";
 
 // ============================================================================
 // FONCTIONS UTILITAIRES
 // ============================================================================
-
 const fmt = (v: number, decimals = 0): string => 
   new Intl.NumberFormat('fr-FR', { 
     style: 'currency', 
@@ -125,7 +118,6 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  // Calcul du score du lead
   const calculateLeadScore = () => {
     let score = 0;
     if (formData.avancementProjet === 'bien_trouve') score += 30;
@@ -174,21 +166,14 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
     const quality = getLeadQuality(score);
     
     const leadData = {
-      // Timestamp
       date: new Date().toISOString(),
-      
-      // Infos contact
       prenom: formData.prenom,
       telephone: formData.telephone,
       email: formData.email,
       codePostal: formData.codePostal,
-      
-      // Qualification
       avancementProjet: formData.avancementProjet,
       objectif: formData.objectif,
       disponibilite: formData.disponibilite,
-      
-      // Données calculateur
       mode: calculatorData.mode,
       montantProjet: calculatorData.montantProjet,
       apport: calculatorData.apport,
@@ -199,30 +184,23 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
       eligiblePTZ: calculatorData.eligiblePTZ ? 'Oui' : 'Non',
       montantPTZ: calculatorData.montantPTZ,
       verdict: calculatorData.verdict,
-      
-      // Scoring
       score: score,
       qualite: quality
     };
 
     try {
-      // Envoi vers Google Sheets
       if (GOOGLE_SHEET_WEBHOOK_URL && GOOGLE_SHEET_WEBHOOK_URL !== "VOTRE_URL_GOOGLE_APPS_SCRIPT_ICI") {
         await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(leadData)
         });
       } else {
-        // Mode démo : afficher dans la console
         console.log('=== NOUVEAU LEAD ===');
         console.log(JSON.stringify(leadData, null, 2));
         console.log('====================');
       }
-      
       setIsSubmitted(true);
     } catch (err) {
       console.error('Erreur envoi lead:', err);
@@ -238,7 +216,6 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
         {isSubmitted ? (
-          // Message de confirmation
           <div className="p-8 text-center">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="w-8 h-8 text-green-600" />
@@ -255,7 +232,6 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
             </button>
           </div>
         ) : (
-          // Formulaire
           <>
             <div className="p-6 border-b border-slate-200">
               <div className="flex items-center justify-between">
@@ -263,17 +239,13 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
                   <h3 className="text-xl font-bold text-slate-900">Parler à un courtier maintenant</h3>
                   <p className="text-sm text-slate-500 mt-1">Analyse gratuite de votre capacité d'emprunt – sans engagement</p>
                 </div>
-                <button
-                  onClick={onClose}
-                  className="p-2 hover:bg-slate-100 rounded-lg transition"
-                >
+                <button onClick={onClose} className="p-2 hover:bg-slate-100 rounded-lg transition">
                   <X className="w-5 h-5 text-slate-500" />
                 </button>
               </div>
             </div>
             
             <form onSubmit={handleSubmit} className="p-6 space-y-5">
-              {/* Bloc identité */}
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">
@@ -328,12 +300,9 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
                   />
                 </div>
                 
-                <p className="text-xs text-slate-500">
-                  Un courtier local vous rappellera sous 24h
-                </p>
+                <p className="text-xs text-slate-500">Un courtier local vous rappellera sous 24h</p>
               </div>
               
-              {/* Bloc projet */}
               <div className="border-t border-slate-200 pt-5 space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -459,7 +428,6 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
                 </div>
               </div>
               
-              {/* Consentement */}
               <div className="border-t border-slate-200 pt-5">
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input
@@ -478,14 +446,12 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
                 </label>
               </div>
               
-              {/* Erreur */}
               {error && (
                 <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700">
                   {error}
                 </div>
               )}
               
-              {/* Bouton submit */}
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -497,13 +463,10 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
                     Envoi en cours...
                   </>
                 ) : (
-                  <>
-                    Être rappelé gratuitement
-                  </>
+                  'Être rappelé gratuitement'
                 )}
               </button>
               
-              {/* Réassurance */}
               <div className="flex items-center justify-center gap-4 text-xs text-slate-500">
                 <span>Données protégées</span>
                 <span>•</span>
@@ -1151,35 +1114,35 @@ export default function CalculateurPretImmobilier() {
               </div>
               
               {/* Tableau d'amortissement */}
-<div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-  <h3 className="text-lg font-bold text-slate-900 mb-4">Tableau d'amortissement</h3>
-  <div className="overflow-x-auto max-h-96 overflow-y-auto">
-    <table className="w-full text-sm">
-      <thead className="sticky top-0 bg-white">
-        <tr className="border-b-2 border-slate-200">
-          <th className="text-left py-3 px-2 text-slate-600 font-medium">Échéance</th>
-          <th className="text-right py-3 px-2 text-slate-600 font-medium">Mensualité</th>
-          <th className="text-right py-3 px-2 text-slate-600 font-medium">Capital</th>
-          <th className="text-right py-3 px-2 text-slate-600 font-medium">Intérêts</th>
-          <th className="text-right py-3 px-2 text-slate-600 font-medium">Restant dû</th>
-        </tr>
-      </thead>
-      <tbody>
-        {resultats.tableau.map((ligne, i) => (
-          <tr key={i} className="border-b border-slate-100 hover:bg-slate-50">
-            <td className="py-2 px-2 font-medium text-slate-900">
-              {ligne.mois <= 12 ? `Mois ${ligne.mois}` : `An ${Math.floor(ligne.mois / 12)}`}
-            </td>
-            <td className="py-2 px-2 text-right font-semibold">{fmt(ligne.mensualite)}</td>
-            <td className="py-2 px-2 text-right text-green-600">{fmt(ligne.capital)}</td>
-            <td className="py-2 px-2 text-right text-orange-600">{fmt(ligne.interets)}</td>
-            <td className="py-2 px-2 text-right font-medium">{fmt(ligne.capitalRestant)}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</div>
+              <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-4">Tableau d'amortissement</h3>
+                <div className="overflow-x-auto max-h-96 overflow-y-auto">
+                  <table className="w-full text-sm">
+                    <thead className="sticky top-0 bg-white">
+                      <tr className="border-b-2 border-slate-200">
+                        <th className="text-left py-3 px-2 text-slate-600 font-medium">Échéance</th>
+                        <th className="text-right py-3 px-2 text-slate-600 font-medium">Mensualité</th>
+                        <th className="text-right py-3 px-2 text-slate-600 font-medium">Capital</th>
+                        <th className="text-right py-3 px-2 text-slate-600 font-medium">Intérêts</th>
+                        <th className="text-right py-3 px-2 text-slate-600 font-medium">Restant dû</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {resultats.tableau.map((ligne, i) => (
+                        <tr key={i} className="border-b border-slate-100 hover:bg-slate-50">
+                          <td className="py-2 px-2 font-medium text-slate-900">
+                            {ligne.mois <= 12 ? `Mois ${ligne.mois}` : `An ${Math.floor(ligne.mois / 12)}`}
+                          </td>
+                          <td className="py-2 px-2 text-right font-semibold">{fmt(ligne.mensualite)}</td>
+                          <td className="py-2 px-2 text-right text-green-600">{fmt(ligne.capital)}</td>
+                          <td className="py-2 px-2 text-right text-orange-600">{fmt(ligne.interets)}</td>
+                          <td className="py-2 px-2 text-right font-medium">{fmt(ligne.capitalRestant)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -1267,7 +1230,7 @@ export default function CalculateurPretImmobilier() {
                 </button>
               </div>
               
-             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+              <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
                 <h3 className="text-lg font-bold text-slate-900 mb-4">Capacité selon la durée</h3>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -1448,9 +1411,8 @@ export default function CalculateurPretImmobilier() {
                   Être rappelé gratuitement
                 </button>
               </div>
-            </div>
-          </div>
-{/* Comparatif Sans PTZ / Avec PTZ */}
+
+              {/* Comparatif Sans PTZ / Avec PTZ */}
               {simulationPtz && (
                 <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
                   <h3 className="text-lg font-bold text-slate-900 mb-4">Comparatif de financement</h3>
@@ -1526,10 +1488,11 @@ export default function CalculateurPretImmobilier() {
                     </div>
                   </div>
                 </div>
-            )}
+              )}
             </div>
           </div>
-     
+        )}
+
         {/* Footer explicatif */}
         <footer className="mt-12 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
           <h2 className="text-lg font-bold text-slate-900 mb-3">
