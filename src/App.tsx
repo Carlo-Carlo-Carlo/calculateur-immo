@@ -189,7 +189,7 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
     };
 
     try {
-      if (GOOGLE_SHEET_WEBHOOK_URL && GOOGLE_SHEET_WEBHOOK_URL !== "VOTRE_URL_GOOGLE_APPS_SCRIPT_ICI") {
+      if (GOOGLE_SHEET_WEBHOOK_URL && GOOGLE_SHEET_WEBHOOK_URL !== "https://script.google.com/macros/s/AKfycbwet_9Ic141cCL9TbmBNCZ3pfqs6IPtvRW12s0ucRkvDAbMcSFfMLHRqvUMP_ywMHRI/exec") {
         await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
           method: 'POST',
           mode: 'no-cors',
