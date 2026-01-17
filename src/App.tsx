@@ -105,6 +105,7 @@ interface LeadFormProps {
 function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
   const [formData, setFormData] = useState({
     prenom: '',
+    nom: '',
     telephone: '',
     email: '',
     codePostal: '',
@@ -155,7 +156,7 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
       return;
     }
     
-    if (!formData.prenom || !formData.telephone || !formData.email || !formData.codePostal) {
+    if (!formData.prenom || !formData.nom || !formData.telephone || !formData.email || !formData.codePostal) {
       setError('Veuillez remplir tous les champs obligatoires.');
       return;
     }
@@ -168,6 +169,7 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
     const leadData = {
       date: new Date().toISOString(),
       prenom: formData.prenom,
+      nom: formData.nom,
       telephone: formData.telephone,
       email: formData.email,
       codePostal: formData.codePostal,
@@ -259,7 +261,18 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
                     placeholder="Votre prénom"
                   />
                 </div>
-                
+                <div>
+  <label className="block text-sm font-medium text-slate-700 mb-1">
+    Nom <span className="text-red-500">*</span>
+  </label>
+  <input
+    type="text"
+    value={formData.nom}
+    onChange={(e) => setFormData({...formData, nom: e.target.value})}
+    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+    placeholder="Votre nom"
+  />
+</div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">
                     Téléphone <span className="text-red-500">*</span>
