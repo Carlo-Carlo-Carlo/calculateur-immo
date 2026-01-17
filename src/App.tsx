@@ -191,18 +191,16 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
     };
 
     try {
-      if (GOOGLE_SHEET_WEBHOOK_URL && GOOGLE_SHEET_WEBHOOK_URL !== "VOTRE_URL_GOOGLE_APPS_SCRIPT_ICI") {
-        await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(leadData)
-        });
-      } else {
-        console.log('=== NOUVEAU LEAD ===');
-        console.log(JSON.stringify(leadData, null, 2));
-        console.log('====================');
-      }
+  await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(leadData)
+  });
+  console.log('=== NOUVEAU LEAD ===');
+  console.log(JSON.stringify(leadData, null, 2));
+  console.log('====================');
+  setIsSubmitted(true);
       setIsSubmitted(true);
     } catch (err) {
       console.error('Erreur envoi lead:', err);
