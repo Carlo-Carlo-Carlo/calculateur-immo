@@ -56,7 +56,7 @@ const GRILLE_TAUX = {
 // ============================================================================
 // GOOGLE SHEETS WEBHOOK URL
 // ============================================================================
-const GOOGLE_SHEET_WEBHOOK_URL = "VOTRE_URL_GOOGLE_APPS_SCRIPT_ICI";
+const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwet_9Ic141cCL9TbmBNCZ3pfqs6IPtvRW12s0ucRkvDAbMcSFfMLHRqvUMP_ywMHRI/exec";
 
 // ============================================================================
 // FONCTIONS UTILITAIRES
