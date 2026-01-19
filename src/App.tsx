@@ -1223,8 +1223,8 @@ export default function CalculateurPretImmobilier() {
             </div>
             
             <div className="lg:col-span-3 space-y-4">
-              <div className="bg-gradient-to-br from-emerald-600 to-green-700 rounded-2xl shadow-xl shadow-green-200 p-6 text-white">
-                <p className="text-emerald-100 text-sm font-medium">Mensualité maximum</p>
+<div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-xl shadow-blue-200 p-6 text-white">               
+  <p className="text-emerald-100 text-sm font-medium">Mensualité maximum</p>
                 <p className="text-5xl font-bold mt-1">{fmt(capacite.mensualiteMax)}</p>
                 <p className="text-emerald-200 text-sm mt-2">
                   Budget possible : {fmt(capacite.budgetMin)} à {fmt(capacite.budgetMax)}
