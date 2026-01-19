@@ -468,9 +468,7 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
                   <span className="text-sm text-slate-600">
                     J'accepte d'être contacté par des partenaires courtiers ou assureurs afin d'étudier mon projet de financement.
                     <br />
-                    <a href="#" className="text-blue-600 hover:underline">Politique de confidentialité</a>
-                    {' • '}
-                    <a href="#" className="text-blue-600 hover:underline">Mentions légales</a>
+                    <Link to="/politique-confidentialite" target="_blank" className="text-blue-600 hover:underline">Politique de confidentialité</Link> • <Link to="/mentions-legales" target="_blank" className="text-blue-600 hover:underline">Mentions légales</Link>
                   </span>
                 </label>
               </div>
