@@ -1108,22 +1108,26 @@ export default function CalculateurPretImmobilier() {
               </div>
 
               {/* CTA Lead */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border-2 border-green-200 p-6">
-                <h3 className="text-lg font-bold text-green-900 mb-2">Concrétisez votre projet</h3>
-                <p className="text-sm text-green-700 mb-4">
-                  Obtenez une analyse gratuite de votre dossier par un courtier de votre région.
-                </p>
-                <button
-                  onClick={() => setShowLeadForm(true)}
-                  className="w-full py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition flex items-center justify-center gap-2"
-                >
-                  Être rappelé gratuitement
-                </button>
-                <p className="text-xs text-green-600 mt-3 text-center">
-                  Sans engagement • Rappel sous 24h
-                </p>
-              </div>
-              
+<div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl border-2 border-orange-300 p-6 shadow-lg shadow-orange-100">
+  <h3 className="text-xl font-bold text-slate-900 mb-2">
+    {resultats.tauxEndettementEstime <= 35 
+      ? "Selon cette simulation, votre projet semble finançable"
+      : "Faites analyser votre dossier par un expert"
+    }
+  </h3>
+  <p className="text-sm text-slate-600 mb-4">
+    Mensualité estimée : <span className="font-semibold text-slate-900">{fmt(resultats.mensualiteTotale)}</span> • Taux d'endettement : <span className="font-semibold text-slate-900">{resultats.tauxEndettementEstime.toFixed(1)}%</span>
+  </p>
+  <button
+    onClick={() => setShowLeadForm(true)}
+    className="w-full py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-bold text-lg hover:from-orange-600 hover:to-amber-600 transition shadow-md shadow-orange-200 flex items-center justify-center gap-2"
+  >
+    Être rappelé gratuitement
+  </button>
+  <p className="text-xs text-slate-500 mt-3 text-center">
+    Sans engagement • Rappel sous 24h • Service gratuit
+  </p>
+</div>
               {/* Tableau d'amortissement */}
               <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
                 <h3 className="text-lg font-bold text-slate-900 mb-4">Tableau d'amortissement</h3>
