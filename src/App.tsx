@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Calculator, Wallet, Home, TrendingUp, AlertCircle, CheckCircle, Info, X } from 'lucide-react';
+import { Calculator, Wallet, Home, TrendingUp, AlertCircle, CheckCircle, Info, X, User, Phone, Mail, MapPin } from 'lucide-react';
 
 // ============================================================================
 // BARÈMES PTZ 2026 - Mis à jour selon PLF 2026
@@ -247,72 +247,89 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
             
             <form onSubmit={handleSubmit} className="p-6 space-y-5">
               <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">
-                    Prénom <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.prenom}
-                    onChange={(e) => setFormData({...formData, prenom: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
-                    placeholder="Votre prénom"
-                  />
-                </div>
-                <div>
-  <label className="block text-sm font-medium text-slate-700 mb-1">
-    Nom <span className="text-red-500">*</span>
-  </label>
-  <input
-    type="text"
-    value={formData.nom}
-    onChange={(e) => setFormData({...formData, nom: e.target.value})}
-    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
-    placeholder="Votre nom"
-  />
+  <div>
+    <label className="block text-sm font-medium text-slate-700 mb-1">
+      Prénom <span className="text-red-500">*</span>
+    </label>
+    <div className="relative">
+      <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+      <input
+        type="text"
+        value={formData.prenom}
+        onChange={(e) => setFormData({...formData, prenom: e.target.value})}
+        className="w-full pl-11 pr-4 py-3 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+        placeholder="Votre prénom"
+      />
+    </div>
+  </div>
+  
+  <div>
+    <label className="block text-sm font-medium text-slate-700 mb-1">
+      Nom <span className="text-red-500">*</span>
+    </label>
+    <div className="relative">
+      <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+      <input
+        type="text"
+        value={formData.nom}
+        onChange={(e) => setFormData({...formData, nom: e.target.value})}
+        className="w-full pl-11 pr-4 py-3 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+        placeholder="Votre nom"
+      />
+    </div>
+  </div>
+  
+  <div>
+    <label className="block text-sm font-medium text-slate-700 mb-1">
+      Téléphone <span className="text-red-500">*</span>
+    </label>
+    <div className="relative">
+      <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+      <input
+        type="tel"
+        value={formData.telephone}
+        onChange={(e) => setFormData({...formData, telephone: e.target.value})}
+        className="w-full pl-11 pr-4 py-3 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+        placeholder="06 00 00 00 00"
+      />
+    </div>
+  </div>
+  
+  <div>
+    <label className="block text-sm font-medium text-slate-700 mb-1">
+      Email <span className="text-red-500">*</span>
+    </label>
+    <div className="relative">
+      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+      <input
+        type="email"
+        value={formData.email}
+        onChange={(e) => setFormData({...formData, email: e.target.value})}
+        className="w-full pl-11 pr-4 py-3 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+        placeholder="votre@email.com"
+      />
+    </div>
+  </div>
+  
+  <div>
+    <label className="block text-sm font-medium text-slate-700 mb-1">
+      Code postal <span className="text-red-500">*</span>
+    </label>
+    <div className="relative">
+      <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+      <input
+        type="text"
+        maxLength={5}
+        value={formData.codePostal}
+        onChange={(e) => setFormData({...formData, codePostal: e.target.value.replace(/\D/g, '')})}
+        className="w-full pl-11 pr-4 py-3 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+        placeholder="75001"
+      />
+    </div>
+  </div>
+  
+  <p className="text-xs text-slate-500">Un courtier local vous rappellera sous 24h</p>
 </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">
-                    Téléphone <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    value={formData.telephone}
-                    onChange={(e) => setFormData({...formData, telephone: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
-                    placeholder="06 00 00 00 00"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">
-                    Email <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
-                    placeholder="votre@email.com"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">
-                    Code postal <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    maxLength={5}
-                    value={formData.codePostal}
-                    onChange={(e) => setFormData({...formData, codePostal: e.target.value.replace(/\D/g, '')})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
-                    placeholder="75001"
-                  />
-                </div>
-                
-                <p className="text-xs text-slate-500">Un courtier local vous rappellera sous 24h</p>
-              </div>
               
               <div className="border-t border-slate-200 pt-5 space-y-4">
                 <div>
