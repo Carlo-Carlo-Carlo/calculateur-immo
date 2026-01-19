@@ -1108,7 +1108,7 @@ export default function CalculateurPretImmobilier() {
               </div>
 
               {/* CTA Lead */}
-<div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl border-2 border-orange-300 p-6 shadow-lg shadow-orange-100">
+<div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-200 p-6 shadow-lg shadow-blue-100">
   <h3 className="text-xl font-bold text-slate-900 mb-2">
     {resultats.tauxEndettementEstime <= 35 
       ? "Selon cette simulation, votre projet semble finançable"
@@ -1120,7 +1120,7 @@ export default function CalculateurPretImmobilier() {
   </p>
   <button
     onClick={() => setShowLeadForm(true)}
-    className="w-full py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-bold text-lg hover:from-orange-600 hover:to-amber-600 transition shadow-md shadow-orange-200 flex items-center justify-center gap-2"
+    className="w-full py-4 bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-xl font-bold text-lg hover:from-emerald-600 hover:to-green-600 transition shadow-lg shadow-green-200 flex items-center justify-center gap-2"
   >
     Être rappelé gratuitement
   </button>
