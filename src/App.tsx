@@ -1562,10 +1562,25 @@ export default function CalculateurPretImmobilier() {
         </footer>
       </main>
 
-      {/* Formulaire Lead Modal */}
-      <LeadForm
-        isOpen={showLeadForm}
-        onClose={() => setShowLeadForm(false)}
+      <footer className="bg-slate-800 text-slate-300 py-8 px-4 mt-12">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-sm mb-3">
+            © {new Date().getFullYear()} UNO • Simulateur de crédit immobilier à titre indicatif
+          </p>
+          <div className="flex justify-center gap-4 text-sm">
+            <Link to="/mentions-legales" className="hover:text-white transition">Mentions légales</Link>
+            <span>•</span>
+            <Link to="/politique-confidentialite" className="hover:text-white transition">Politique de confidentialité</Link>
+          </div>
+          <p className="text-xs text-slate-500 mt-4">
+            Les simulations ne constituent ni une offre de crédit, ni un engagement contractuel.
+          </p>
+        </div>
+      </footer>
+      
+      <LeadForm 
+        isOpen={showLeadForm} 
+        onClose={() => setShowLeadForm(false)} 
         calculatorData={getCalculatorDataForLead()}
       />
     </div>
