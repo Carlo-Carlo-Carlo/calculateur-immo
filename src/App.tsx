@@ -1384,7 +1384,7 @@ export default function CalculateurPretImmobilier() {
             <div className="lg:col-span-3 space-y-4">
               {calculPtz.eligible ? (
                 <>
-                  <div className="bg-gradient-to-br from-emerald-600 to-green-700 rounded-2xl shadow-xl shadow-green-200 p-6 text-white">
+                 <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-xl shadow-blue-200 p-6 text-white">
                     <div className="flex items-center gap-2 mb-2">
                       <CheckCircle className="w-5 h-5" />
                       <p className="text-emerald-100 font-medium">Éligible au PTZ !</p>
@@ -1417,20 +1417,29 @@ export default function CalculateurPretImmobilier() {
               )}
               
               {/* CTA Lead */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border-2 border-green-200 p-6">
-                <h3 className="text-lg font-bold text-green-900 mb-2">
-                  {calculPtz.eligible ? 'Profitez du PTZ avec un courtier' : 'Explorez vos options de financement'}
-                </h3>
-                <p className="text-sm text-green-700 mb-4">
-                  Un courtier vous aide à optimiser votre plan de financement gratuitement.
-                </p>
-                <button
-                  onClick={() => setShowLeadForm(true)}
-                  className="w-full py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition flex items-center justify-center gap-2"
-                >
-                  Être rappelé gratuitement
-                </button>
-              </div>
+<div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-200 p-6 shadow-lg shadow-blue-100">
+  <h3 className="text-xl font-bold text-slate-900 mb-2">
+    {calculPtz.eligible 
+      ? `Selon vos critères, vous pourriez être éligible à un PTZ de ${fmt(calculPtz.montantPtz)}`
+      : "Un courtier peut étudier d'autres options de financement pour vous"
+    }
+  </h3>
+  <p className="text-sm text-slate-600 mb-4">
+    {calculPtz.eligible 
+      ? `Différé de ${calculPtz.differe} ans • Remboursement sur ${calculPtz.dureeRemboursement} ans`
+      : "Analyse gratuite de votre dossier et recherche des meilleures solutions"
+    }
+  </p>
+  <button
+    onClick={() => setShowLeadForm(true)}
+    className="w-full py-4 bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-xl font-bold text-lg hover:from-emerald-600 hover:to-green-600 transition shadow-lg shadow-green-200 flex items-center justify-center gap-2"
+  >
+    Être rappelé gratuitement
+  </button>
+  <p className="text-xs text-slate-500 mt-3 text-center">
+    Sans engagement • Rappel sous 24h • Service gratuit
+  </p>
+</div>
 
               {/* Comparatif Sans PTZ / Avec PTZ */}
               {simulationPtz && (
