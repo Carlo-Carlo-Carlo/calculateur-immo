@@ -1231,19 +1231,24 @@ export default function CalculateurPretImmobilier() {
                 </p>
               </div>
               
-              {/* CTA Lead */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border-2 border-green-200 p-6">
-                <h3 className="text-lg font-bold text-green-900 mb-2">Validez votre capacité d'emprunt</h3>
-                <p className="text-sm text-green-700 mb-4">
-                  Un courtier analyse gratuitement votre dossier et vous trouve le meilleur taux.
-                </p>
-                <button
-                  onClick={() => setShowLeadForm(true)}
-                  className="w-full py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition flex items-center justify-center gap-2"
-                >
-                  Être rappelé gratuitement
-                </button>
-              </div>
+          {/* CTA Lead */}
+<div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-200 p-6 shadow-lg shadow-blue-100">
+  <h3 className="text-xl font-bold text-slate-900 mb-2">
+    Selon cette simulation, vous pourriez emprunter jusqu'à {fmt(capacite.capacites[capacite.capacites.length - 1].capital)}
+  </h3>
+  <p className="text-sm text-slate-600 mb-4">
+    Mensualité maximum : <span className="font-semibold text-slate-900">{fmt(capacite.mensualiteMax)}</span> • Budget total possible : <span className="font-semibold text-slate-900">{fmt(capacite.budgetMax)}</span>
+  </p>
+  <button
+    onClick={() => setShowLeadForm(true)}
+    className="w-full py-4 bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-xl font-bold text-lg hover:from-emerald-600 hover:to-green-600 transition shadow-lg shadow-green-200 flex items-center justify-center gap-2"
+  >
+    Être rappelé gratuitement
+  </button>
+  <p className="text-xs text-slate-500 mt-3 text-center">
+    Sans engagement • Rappel sous 24h • Service gratuit
+  </p>
+</div>
               
               <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
                 <h3 className="text-lg font-bold text-slate-900 mb-4">Capacité selon la durée</h3>
