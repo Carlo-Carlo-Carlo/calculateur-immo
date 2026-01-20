@@ -112,6 +112,7 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
     codePostal: '',
     avancementProjet: '',
     objectif: '',
+    typeBien: '',
     disponibilite: '',
     consentement: false
   });
