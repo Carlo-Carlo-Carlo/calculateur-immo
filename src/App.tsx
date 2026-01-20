@@ -189,11 +189,24 @@ const getLeadQuality = (score: number) => {
     const score = calculateLeadScore();
     const quality = getLeadQuality(score);
     
-    // Récupération des paramètres UTM depuis l'URL
+   // Récupération des paramètres UTM depuis l'URL
 const urlParams = new URLSearchParams(window.location.search);
 
+// Date en heure de Paris
+const dateParisOptions: Intl.DateTimeFormatOptions = {
+  timeZone: 'Europe/Paris',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hour12: false
+};
+const dateParis = new Date().toLocaleString('fr-FR', dateParisOptions);
+
 const leadData = {
-  date: new Date().toISOString(),
+  date: dateParis,
   prenom: formData.prenom,
   nom: formData.nom,
   telephone: formData.telephone,
@@ -208,17 +221,17 @@ const leadData = {
   montantEmprunte: calculatorData.montantProjet - calculatorData.apport,
   apport: calculatorData.apport,
   duree: calculatorData.duree,
-  mensualite: calculatorData.mensualite,
-  tauxEndettement: calculatorData.tauxEndettement,
-  resteAVivre: calculatorData.resteAVivre,
-  eligiblePTZ: calculatorData.eligiblePTZ,
-  montantPTZ: calculatorData.montantPTZ,
+  mensualite: Math.round(calculatorData.mensualite * 100) / 100,
+  tauxEndettement: Math.round(calculatorData.tauxEndettement * 100) / 100,
+  resteAVivre: Math.round(calculatorData.resteAVivre * 100) / 100,
+  eligiblePTZ: calculatorData.eligiblePTZ ? 'Oui' : 'Non',
+  montantPTZ: calculatorData.montantPTZ || 0,
   verdict: calculatorData.verdict,
   score: score,
   qualite: quality,
   consentement: true,
-  consentementTimestamp: new Date().toISOString(),
-  pageSource: window.location.pathname,
+  consentementTimestamp: dateParis,
+  pageSource: window.location.pathname || '/',
   utmSource: urlParams.get('utm_source') || '',
   utmMedium: urlParams.get('utm_medium') || '',
   utmCampaign: urlParams.get('utm_campaign') || ''
