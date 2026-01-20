@@ -876,7 +876,7 @@ export default function CalculateurPretImmobilier() {
       const cap20ans = capacite.capacites.find(c => c.duree === 20);
       montantProjet = cap20ans?.budgetTotal || 0;
       apportLead = apport;
-      dureeLead = 20;
+      dureeLead = '10-25';
       mensualite = cap20ans?.mensualite || 0;
       tauxEndettementLead = tauxEndettement;
       resteAVivre = revenus - mensualite;
