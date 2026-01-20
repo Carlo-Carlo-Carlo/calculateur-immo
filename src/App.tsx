@@ -414,7 +414,29 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
                     </label>
                   </div>
                 </div>
-                
+
+                <div>
+  <label className="block text-sm font-medium text-slate-700 mb-2">Type de bien recherché</label>
+  <div className="space-y-2">
+    {[
+      { value: 'ancien', label: 'Ancien' },
+      { value: 'neuf', label: 'Neuf' },
+      { value: 'terrain_construction', label: 'Terrain / Construction' }
+    ].map(option => (
+      <label key={option.value} className="flex items-center gap-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50">
+        <input
+          type="radio"
+          name="typeBien"
+          value={option.value}
+          checked={formData.typeBien === option.value}
+          onChange={(e) => setFormData({...formData, typeBien: e.target.value})}
+          className="w-4 h-4 text-blue-600"
+        />
+        <span className="text-slate-700">{option.label}</span>
+      </label>
+    ))}
+  </div>
+</div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
                     Quand souhaitez-vous être rappelé ?
