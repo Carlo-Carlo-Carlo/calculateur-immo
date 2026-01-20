@@ -93,7 +93,7 @@ interface LeadFormProps {
     mode: string;
     montantProjet: number;
     apport: number;
-    duree: number;
+    duree: number | string;
     mensualite: number;
     tauxEndettement: number;
     resteAVivre: number;
