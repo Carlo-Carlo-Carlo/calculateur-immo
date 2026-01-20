@@ -150,8 +150,17 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
+  e.preventDefault();
+  setError('');
+  
+  // Validation du téléphone (10 chiffres, commence par 06 ou 07)
+  const telCleaned = formData.telephone.replace(/\s/g, '');
+  if (!/^0[67]\d{8}$/.test(telCleaned)) {
+    setError('Merci de saisir un numéro de mobile valide (06 ou 07)');
+    return;
+  }
+  
+  setIsSubmitting(true);
     
     if (!formData.consentement) {
       setError('Veuillez accepter les conditions pour continuer.');
