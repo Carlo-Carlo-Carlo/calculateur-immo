@@ -122,32 +122,44 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
   const [error, setError] = useState('');
 
   const calculateLeadScore = () => {
-    let score = 0;
-    if (formData.avancementProjet === 'bien_trouve') score += 30;
-    else if (formData.avancementProjet === 'recherche_active') score += 15;
-    
-    if (formData.objectif === 'investissement') score += 20;
-    else if (formData.objectif === 'residence_principale' || formData.objectif === 'renegociation') score += 10;
-    
-    if (formData.disponibilite === 'aujourdhui') score += 20;
-    else if (formData.disponibilite === 'demain') score += 10;
-    
-    if (calculatorData.tauxEndettement < 35) score += 20;
-    
-    const tauxApport = calculatorData.montantProjet > 0 
-      ? (calculatorData.apport / calculatorData.montantProjet) * 100 
-      : 0;
-    if (tauxApport >= 10) score += 10;
-    
-    return score;
-  };
+  let score = 0;
 
-  const getLeadQuality = (score: number) => {
-    if (score >= 70) return 'Premium';
-    if (score >= 50) return 'Chaud';
-    if (score >= 30) return 'Tiède';
-    return 'Froid';
-  };
+  // Avancement projet (max 30)
+  if (formData.avancementProjet === 'bien_trouve') score += 30;
+  else if (formData.avancementProjet === 'recherche_active') score += 20;
+  else if (formData.avancementProjet === 'renseigne') score += 5;
+
+  // Objectif (max 20)
+  if (formData.objectif === 'investissement') score += 20;
+  else if (formData.objectif === 'residence_principale') score += 15;
+  else if (formData.objectif === 'renegociation') score += 10;
+
+  // Type de bien (max 10)
+  if (formData.typeBien === 'neuf') score += 10;
+  else if (formData.typeBien === 'ancien') score += 8;
+  else if (formData.typeBien === 'terrain_construction') score += 5;
+
+  // Disponibilité (max 20)
+  if (formData.disponibilite === 'aujourdhui') score += 20;
+  else if (formData.disponibilite === 'demain') score += 15;
+  else if (formData.disponibilite === 'semaine') score += 5;
+
+  // Critères financiers (max 20)
+  if (calculatorData.tauxEndettement < 35) score += 10;
+  
+  const tauxApport = calculatorData.montantProjet > 0
+    ? (calculatorData.apport / calculatorData.montantProjet) * 100
+    : 0;
+  if (tauxApport >= 10) score += 10;
+
+  return score;
+};
+
+const getLeadQuality = (score: number) => {
+  if (score >= 70) return 'Premium';
+  if (score >= 40) return 'Tiède';
+  return 'Froid';
+};
 
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
