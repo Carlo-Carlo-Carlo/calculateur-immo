@@ -856,7 +856,7 @@ export default function CalculateurPretImmobilier() {
   const getCalculatorDataForLead = () => {
     let montantProjet = 0;
     let apportLead = 0;
-    let dureeLead = 0;
+    let dureeLead : number | string = 0;
     let mensualite = 0;
     let tauxEndettementLead = 0;
     let resteAVivre = 0;
