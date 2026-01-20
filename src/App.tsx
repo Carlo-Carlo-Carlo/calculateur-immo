@@ -168,29 +168,40 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
     const score = calculateLeadScore();
     const quality = getLeadQuality(score);
     
-    const leadData = {
-      date: new Date().toISOString(),
-      prenom: formData.prenom,
-      nom: formData.nom,
-      telephone: formData.telephone,
-      email: formData.email,
-      codePostal: formData.codePostal,
-      avancementProjet: formData.avancementProjet,
-      objectif: formData.objectif,
-      disponibilite: formData.disponibilite,
-      mode: calculatorData.mode,
-      montantProjet: calculatorData.montantProjet,
-      apport: calculatorData.apport,
-      duree: calculatorData.duree,
-      mensualite: Math.round(calculatorData.mensualite),
-      tauxEndettement: calculatorData.tauxEndettement.toFixed(1),
-      resteAVivre: Math.round(calculatorData.resteAVivre),
-      eligiblePTZ: calculatorData.eligiblePTZ ? 'Oui' : 'Non',
-      montantPTZ: calculatorData.montantPTZ,
-      verdict: calculatorData.verdict,
-      score: score,
-      qualite: quality
-    };
+    // Récupération des paramètres UTM depuis l'URL
+const urlParams = new URLSearchParams(window.location.search);
+
+const leadData = {
+  date: new Date().toISOString(),
+  prenom: formData.prenom,
+  nom: formData.nom,
+  telephone: formData.telephone,
+  email: formData.email,
+  codePostal: formData.codePostal,
+  avancementProjet: formData.avancementProjet,
+  objectif: formData.objectif,
+  typeBien: formData.typeBien,
+  disponibilite: formData.disponibilite,
+  mode: calculatorData.mode,
+  prixBien: calculatorData.montantProjet,
+  montantEmprunte: calculatorData.montantProjet - calculatorData.apport,
+  apport: calculatorData.apport,
+  duree: calculatorData.duree,
+  mensualite: calculatorData.mensualite,
+  tauxEndettement: calculatorData.tauxEndettement,
+  resteAVivre: calculatorData.resteAVivre,
+  eligiblePTZ: calculatorData.eligiblePTZ,
+  montantPTZ: calculatorData.montantPTZ,
+  verdict: calculatorData.verdict,
+  score: score,
+  qualite: quality,
+  consentement: true,
+  consentementTimestamp: new Date().toISOString(),
+  pageSource: window.location.pathname,
+  utmSource: urlParams.get('utm_source') || '',
+  utmMedium: urlParams.get('utm_medium') || '',
+  utmCampaign: urlParams.get('utm_campaign') || ''
+};
 
     try {
   await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
