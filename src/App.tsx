@@ -957,17 +957,18 @@ export default function CalculateurPretImmobilier() {
     }
 
     return {
-      mode,
-      montantProjet,
-      apport: apportLead,
-      duree: dureeLead,
-      mensualite,
-      tauxEndettement: tauxEndettementLead,
-      resteAVivre,
-      eligiblePTZ,
-      montantPTZ,
-      verdict
-    };
+  mode: mode,
+  montantProjet: montantProjet,
+  apport: apportLead,
+  duree: dureeLead,
+  mensualite: mensualite,
+  tauxEndettement: tauxEndettementLead,
+  resteAVivre: resteAVivre,
+  eligiblePTZ: eligiblePTZ,
+  montantPTZ: montantPTZ,
+  verdict: verdict,
+  revenusCalculateur: mode === 'mensualite' ? 0 : revenus
+};
   };
 
   // ============================================================================
