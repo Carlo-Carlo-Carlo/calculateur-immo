@@ -62,12 +62,15 @@ const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwet_9
 // ============================================================================
 // FONCTIONS UTILITAIRES
 // ============================================================================
-const fmt = (v: number, decimals = 0): string => 
-  new Intl.NumberFormat('fr-FR', { 
-    style: 'currency', 
-    currency: 'EUR', 
-    maximumFractionDigits: decimals 
+const fmt = (v: number, decimals = 0): string => {
+  const formatted = new Intl.NumberFormat('fr-FR', {
+    style: 'currency',
+    currency: 'EUR',
+    maximumFractionDigits: decimals
   }).format(v);
+  // Utilise des espaces insécables pour éviter le retour à la ligne sur mobile
+  return formatted.replace(/\s/g, '\u00A0');
+};
 
 const calculMensualite = (capital: number, tauxAnnuel: number, dureeAnnees: number): number => {
   if (capital <= 0) return 0;
