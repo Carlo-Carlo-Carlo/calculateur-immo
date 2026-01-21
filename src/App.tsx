@@ -108,19 +108,30 @@ interface LeadFormProps {
 }
 
 function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
-  const [formData, setFormData] = useState({
-    prenom: '',
-    nom: '',
-    telephone: '',
-    email: '',
-    codePostal: '',
-    revenus: '',
-    avancementProjet: '',
-    objectif: '',
-    typeBien: '',
-    disponibilite: '',
-    consentement: false
-  });
+  // Fonction pour convertir les revenus du calculateur en tranche
+const getTrancheFromRevenus = (revenus: number): string => {
+  if (revenus <= 0) return '';
+  if (revenus < 2000) return 'moins_2000';
+  if (revenus < 3000) return '2000_3000';
+  if (revenus < 4000) return '3000_4000';
+  if (revenus < 5000) return '4000_5000';
+  if (revenus < 7000) return '5000_7000';
+  return 'plus_7000';
+};
+
+const [formData, setFormData] = useState({
+  prenom: '',
+  nom: '',
+  telephone: '',
+  email: '',
+  codePostal: '',
+  revenus: getTrancheFromRevenus(calculatorData.revenusCalculateur),
+  avancementProjet: '',
+  objectif: '',
+  typeBien: '',
+  disponibilite: '',
+  consentement: false
+});
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
