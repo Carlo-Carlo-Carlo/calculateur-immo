@@ -148,9 +148,15 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
   else if (formData.disponibilite === 'demain') score += 15;
   else if (formData.disponibilite === 'semaine') score += 5;
 
-  // Critères financiers (max 20)
-  if (calculatorData.tauxEndettement < 35) score += 10;
-  
+  // Revenus (max 40)
+  if (formData.revenus === 'plus_7000') score += 40;
+  else if (formData.revenus === '5000_7000') score += 40;
+  else if (formData.revenus === '4000_5000') score += 30;
+  else if (formData.revenus === '3000_4000') score += 20;
+  else if (formData.revenus === '2000_3000') score += 10;
+  else if (formData.revenus === 'moins_2000') score += 0;
+
+  // Apport >= 10% (max 10)
   const tauxApport = calculatorData.montantProjet > 0
     ? (calculatorData.apport / calculatorData.montantProjet) * 100
     : 0;
