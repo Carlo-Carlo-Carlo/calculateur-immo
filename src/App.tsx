@@ -215,6 +215,32 @@ const dateParisOptions: Intl.DateTimeFormatOptions = {
 };
 const dateParis = new Date().toLocaleString('fr-FR', dateParisOptions);
 
+ // Convertir la tranche de revenus en valeur numérique pour les calculs
+const getRevenusFromTranche = (tranche: string): number => {
+  switch (tranche) {
+    case 'moins_2000': return 1750;
+    case '2000_3000': return 2500;
+    case '3000_4000': return 3500;
+    case '4000_5000': return 4500;
+    case '5000_7000': return 6000;
+    case 'plus_7000': return 8000;
+    default: return 0;
+  }
+};
+
+const revenus = getRevenusFromTranche(formData.revenus);
+const mensualite = calculatorData.mensualite;
+const tauxEndettementCalc = revenus > 0 ? Math.round((mensualite / revenus) * 100 * 100) / 100 : 0;
+const resteAVivreCalc = revenus > 0 ? Math.round((revenus - mensualite) * 100) / 100 : 0;
+
+// Déterminer le verdict basé sur le taux d'endettement
+const getVerdict = (): string => {
+  if (revenus === 0) return 'À étudier';
+  if (tauxEndettementCalc <= 35) return 'Finançable';
+  if (tauxEndettementCalc <= 40) return 'Limite';
+  return 'Difficile';
+};   
+    
 const leadData = {
   date: dateParis,
   prenom: formData.prenom,
@@ -231,12 +257,13 @@ const leadData = {
   montantEmprunte: calculatorData.montantProjet - calculatorData.apport,
   apport: calculatorData.apport,
   duree: calculatorData.duree,
-  mensualite: Math.round(calculatorData.mensualite * 100) / 100,
-  tauxEndettement: Math.round(calculatorData.tauxEndettement * 100) / 100,
-  resteAVivre: Math.round(calculatorData.resteAVivre * 100) / 100,
+ revepieds: formData.revenus,
+mensualite: Math.round(mensualite * 100) / 100,
+tauxEndettement: tauxEndettementCalc,
+resteAVivre: resteAVivreCalc,
   eligiblePTZ: calculatorData.eligiblePTZ ? 'Oui' : 'Non',
   montantPTZ: calculatorData.montantPTZ || 0,
-  verdict: calculatorData.verdict,
+  verdict: getVerdict(),
   score: score,
   qualite: quality,
   consentement: true,
