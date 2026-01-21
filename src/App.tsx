@@ -936,7 +936,7 @@ export default function CalculateurPretImmobilier() {
                 }`}
               >
                 <Calculator className="w-4 h-4" />
-                <span className="hidden sm:inline">Mensualités</span>
+                <span className="text-xs sm:text-sm">Mensualités</span>
               </button>
               <button 
                 onClick={() => setMode('capacite')} 
@@ -947,7 +947,7 @@ export default function CalculateurPretImmobilier() {
                 }`}
               >
                 <Wallet className="w-4 h-4" />
-                <span className="hidden sm:inline">Capacité</span>
+                <span className="text-xs sm:text-sm">Capacité</span>
               </button>
               <button 
                 onClick={() => setMode('ptz')} 
@@ -958,7 +958,7 @@ export default function CalculateurPretImmobilier() {
                 }`}
               >
                 <TrendingUp className="w-4 h-4" />
-                <span className="hidden sm:inline">PTZ</span>
+                <span className="text-xs sm:text-sm">PTZ</span>
               </button>
             </nav>
           </div>
