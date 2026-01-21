@@ -113,6 +113,7 @@ function LeadForm({ isOpen, onClose, calculatorData }: LeadFormProps) {
     telephone: '',
     email: '',
     codePostal: '',
+    revenus: '',
     avancementProjet: '',
     objectif: '',
     typeBien: '',
