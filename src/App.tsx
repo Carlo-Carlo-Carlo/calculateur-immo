@@ -118,7 +118,9 @@ const getTrancheFromRevenus = (revenus: number): string => {
   if (revenus < 7000) return '5000_7000';
   return 'plus_7000';
 };
-
+console.log('revenusCalculateur:', calculatorData.revenusCalculateur);
+console.log('tranche:', getTrancheFromRevenus(calculatorData.revenusCalculateur));
+  
 const [formData, setFormData] = useState({
   prenom: '',
   nom: '',
