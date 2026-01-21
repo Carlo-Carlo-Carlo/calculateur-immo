@@ -118,22 +118,30 @@ const getTrancheFromRevenus = (revenus: number): string => {
   if (revenus < 7000) return '5000_7000';
   return 'plus_7000';
 };
-console.log('revenusCalculateur:', calculatorData.revenusCalculateur);
-console.log('tranche:', getTrancheFromRevenus(calculatorData.revenusCalculateur));
-  
+
 const [formData, setFormData] = useState({
   prenom: '',
   nom: '',
   telephone: '',
   email: '',
   codePostal: '',
-  revenus: getTrancheFromRevenus(calculatorData.revenusCalculateur),
+  revenus: '',
   avancementProjet: '',
   objectif: '',
   typeBien: '',
   disponibilite: '',
   consentement: false
 });
+
+// Pré-remplir la tranche de revenus quand le formulaire s'ouvre
+useEffect(() => {
+  if (isOpen) {
+    const tranche = getTrancheFromRevenus(calculatorData.revenusCalculateur);
+    if (tranche) {
+      setFormData(prev => ({ ...prev, revenus: tranche }));
+    }
+  }
+}, [isOpen, calculatorData.revenusCalculateur]);
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
