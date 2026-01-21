@@ -378,7 +378,32 @@ const leadData = {
       />
     </div>
   </div>
-  
+<div>
+  <label className="block text-sm font-medium text-slate-700 mb-2">Revenus mensuels nets du foyer</label>
+  <div className="space-y-2">
+    {[
+      { value: 'moins_2000', label: 'Moins de 2 000 €' },
+      { value: '2000_3000', label: '2 000 € - 3 000 €' },
+      { value: '3000_4000', label: '3 000 € - 4 000 €' },
+      { value: '4000_5000', label: '4 000 € - 5 000 €' },
+      { value: '5000_7000', label: '5 000 € - 7 000 €' },
+      { value: 'plus_7000', label: '7 000 € et +' }
+    ].map(option => (
+      <label key={option.value} className="flex items-center gap-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50">
+        <input
+          type="radio"
+          name="revenus"
+          value={option.value}
+          checked={formData.revenus === option.value}
+          onChange={(e) => setFormData({...formData, revenus: e.target.value})}
+          className="w-4 h-4 text-blue-600"
+        />
+        <span className="text-slate-700">{option.label}</span>
+      </label>
+    ))}
+  </div>
+</div>
+                
   <p className="text-xs text-slate-500">Un courtier local vous rappellera sous 24h</p>
 </div>
               
