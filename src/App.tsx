@@ -98,11 +98,12 @@ interface LeadFormProps {
     apport: number;
     duree: number | string;
     mensualite: number;
-    tauxEndettement: number;
-    resteAVivre: number;
+    tauxEndettement: number | string;
+    resteAVivre: number | string;
     eligiblePTZ: boolean;
     montantPTZ: number;
     verdict: string;
+    revenusCalculateur: number;
   };
 }
 
