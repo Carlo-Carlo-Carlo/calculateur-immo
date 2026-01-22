@@ -694,8 +694,6 @@ export default function CalculateurPretImmobilier() {
   const [tauxAssurancePtz, setTauxAssurancePtz] = useState(0.34);
 
   // État formulaire lead
-  const [showLeadForm, setShowLeadForm] = useState(false);
-  // État formulaire lead
 const [showLeadForm, setShowLeadForm] = useState(false);
 const [showCookieBanner, setShowCookieBanner] = useState(() => {
   return localStorage.getItem('cookies-accepted') === null;
