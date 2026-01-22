@@ -700,7 +700,25 @@ const [showLeadForm, setShowLeadForm] = useState(false);
 const [showCookieBanner, setShowCookieBanner] = useState(() => {
   return localStorage.getItem('cookies-accepted') === null;
 });
+const acceptCookies = () => {
+  localStorage.setItem('cookies-accepted', 'true');
+  setShowCookieBanner(false);
+  // Charger Google Analytics
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-KS6CDBW4CP';
+  document.head.appendChild(script);
+  (window as any).dataLayer = (window as any).dataLayer || [];
+  function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
+  gtag('js', new Date());
+  gtag('config', 'G-KS6CDBW4CP');
+};
 
+const refuseCookies = () => {
+  localStorage.setItem('cookies-accepted', 'false');
+  setShowCookieBanner(false);
+};
+  
   // ============================================================================
   // CALCULS MODE MENSUALITÉ
   // ============================================================================
