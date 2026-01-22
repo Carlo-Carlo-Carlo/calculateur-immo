@@ -1712,6 +1712,61 @@ const refuseCookies = () => {
           </div>
         )}
 
+        {/* Section SEO */}
+<section className="bg-white border-t border-slate-200 py-12 px-4">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">Tout savoir sur le crédit immobilier</h2>
+    
+    <div className="grid md:grid-cols-2 gap-8 mb-12">
+      <div>
+        <h3 className="text-lg font-semibold text-slate-800 mb-3">Comment calculer sa capacité d'emprunt ?</h3>
+        <p className="text-slate-600 text-sm leading-relaxed">
+          Votre capacité d'emprunt dépend principalement de vos revenus et de vos charges. Les banques appliquent généralement un taux d'endettement maximum de 35%. Notre calculateur prend en compte vos revenus nets, vos charges mensuelles et la durée souhaitée pour estimer le montant que vous pouvez emprunter.
+        </p>
+      </div>
+      
+      <div>
+        <h3 className="text-lg font-semibold text-slate-800 mb-3">Qu'est-ce que le PTZ 2026 ?</h3>
+        <p className="text-slate-600 text-sm leading-relaxed">
+          Le Prêt à Taux Zéro (PTZ) est un dispositif d'aide à l'accession à la propriété. En 2026, il permet aux primo-accédants de financer jusqu'à 50% de leur achat sans intérêts. Les conditions d'éligibilité dépendent de vos revenus, de la zone géographique et du type de bien (neuf ou ancien avec travaux).
+        </p>
+      </div>
+      
+      <div>
+        <h3 className="text-lg font-semibold text-slate-800 mb-3">Quel taux pour un crédit immobilier en 2026 ?</h3>
+        <p className="text-slate-600 text-sm leading-relaxed">
+          Les taux de crédit immobilier en janvier 2026 varient selon la durée d'emprunt et votre profil. En moyenne, comptez entre 3% et 3,5% sur 20 ans. Notre simulateur utilise les taux moyens du marché pour vous donner une estimation réaliste de vos mensualités.
+        </p>
+      </div>
+      
+      <div>
+        <h3 className="text-lg font-semibold text-slate-800 mb-3">Comment réduire ses mensualités ?</h3>
+        <p className="text-slate-600 text-sm leading-relaxed">
+          Pour réduire vos mensualités, plusieurs leviers existent : augmenter la durée du prêt, négocier le taux d'intérêt, augmenter votre apport personnel ou encore optimiser l'assurance emprunteur. Un courtier peut vous aider à obtenir les meilleures conditions auprès des banques.
+        </p>
+      </div>
+    </div>
+    
+    <div className="bg-slate-50 rounded-2xl p-6">
+      <h3 className="text-lg font-semibold text-slate-800 mb-4">Questions fréquentes</h3>
+      <div className="space-y-4">
+        <div>
+          <h4 className="font-medium text-slate-800 mb-1">Quel apport minimum pour un crédit immobilier ?</h4>
+          <p className="text-slate-600 text-sm">Les banques demandent généralement un apport de 10% minimum, couvrant au moins les frais de notaire. Un apport plus important (20-30%) vous permettra d'obtenir un meilleur taux.</p>
+        </div>
+        <div>
+          <h4 className="font-medium text-slate-800 mb-1">Peut-on emprunter sans apport ?</h4>
+          <p className="text-slate-600 text-sm">C'est possible mais plus difficile. Certaines banques acceptent de financer 110% du projet (bien + frais de notaire) pour les profils avec des revenus stables et un bon reste à vivre.</p>
+        </div>
+        <div>
+          <h4 className="font-medium text-slate-800 mb-1">Quelle durée choisir pour son prêt immobilier ?</h4>
+          <p className="text-slate-600 text-sm">La durée idéale dépend de votre situation. Un prêt plus court (15-20 ans) coûte moins cher en intérêts mais implique des mensualités plus élevées. Sur 25 ans, les mensualités sont plus légères mais le coût total augmente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+        
         {/* Footer explicatif */}
         <footer className="mt-12 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
           <h2 className="text-lg font-bold text-slate-900 mb-3">
