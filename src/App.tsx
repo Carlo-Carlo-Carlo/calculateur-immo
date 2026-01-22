@@ -695,6 +695,11 @@ export default function CalculateurPretImmobilier() {
 
   // État formulaire lead
   const [showLeadForm, setShowLeadForm] = useState(false);
+  // État formulaire lead
+const [showLeadForm, setShowLeadForm] = useState(false);
+const [showCookieBanner, setShowCookieBanner] = useState(() => {
+  return localStorage.getItem('cookies-accepted') === null;
+});
 
   // ============================================================================
   // CALCULS MODE MENSUALITÉ
