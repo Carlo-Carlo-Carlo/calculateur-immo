@@ -1759,6 +1759,30 @@ const refuseCookies = () => {
         onClose={() => setShowLeadForm(false)} 
         calculatorData={getCalculatorDataForLead()}
       />
+      {showCookieBanner && (
+        <div className="fixed bottom-0 left-0 right-0 bg-slate-900 text-white p-4 z-50 shadow-lg">
+          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-center sm:text-left">
+              Ce site utilise des cookies pour analyser le trafic. En continuant, vous acceptez leur utilisation.{' '}
+              <Link to="/politique-confidentialite" className="underline hover:text-blue-300">En savoir plus</Link>
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={refuseCookies}
+                className="px-4 py-2 text-sm border border-slate-500 rounded-lg hover:bg-slate-800 transition"
+              >
+                Refuser
+              </button>
+              <button
+                onClick={acceptCookies}
+                className="px-4 py-2 text-sm bg-blue-600 rounded-lg hover:bg-blue-700 transition"
+              >
+                Accepter
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
