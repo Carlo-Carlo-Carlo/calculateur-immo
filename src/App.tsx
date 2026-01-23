@@ -1766,6 +1766,79 @@ const refuseCookies = () => {
     </div>
   </div>
 </section>
+
+{/* Section GEO - Contenu IA-friendly */}
+<section className="bg-slate-50 border-t border-slate-200 py-12 px-4">
+  <div className="max-w-4xl mx-auto">
+    
+    <h2 className="text-2xl font-bold text-slate-900 mb-8">Comment fonctionne ce calculateur de crédit immobilier ?</h2>
+    
+    <div className="grid md:grid-cols-2 gap-8 mb-10">
+      <div>
+        <p className="text-slate-600 leading-relaxed mb-4">
+          Ce calculateur de crédit immobilier permet d'estimer la mensualité, la capacité d'emprunt et le taux d'endettement selon les règles bancaires françaises. Il intègre également une simulation du Prêt à Taux Zéro (PTZ) pour les primo-accédants.
+        </p>
+        <h3 className="text-lg font-semibold text-slate-800 mb-3">Critères pris en compte</h3>
+        <ul className="text-slate-600 text-sm space-y-2">
+          <li>• Revenus mensuels nets du foyer</li>
+          <li>• Charges mensuelles fixes</li>
+          <li>• Apport personnel</li>
+          <li>• Durée du prêt (de 5 à 25 ans)</li>
+          <li>• Taux d'intérêt actuel du marché</li>
+          <li>• Assurance emprunteur</li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 className="text-lg font-semibold text-slate-800 mb-3">Règles bancaires appliquées en France</h3>
+        <ul className="text-slate-600 text-sm space-y-2 mb-6">
+          <li>• Taux d'endettement maximum de 35 % (assurance incluse)</li>
+          <li>• Prise en compte de l'assurance dans le calcul de la mensualité</li>
+          <li>• Analyse du reste à vivre après paiement des charges</li>
+          <li>• Durée maximale de prêt de 25 ans (27 ans dans certains cas)</li>
+          <li>• Frais de notaire estimés selon le type de bien (neuf ou ancien)</li>
+        </ul>
+        
+        <h3 className="text-lg font-semibold text-slate-800 mb-3">Trois modes de simulation</h3>
+        <ul className="text-slate-600 text-sm space-y-2">
+          <li>• <strong>Mensualités</strong> : calculez vos remboursements mensuels</li>
+          <li>• <strong>Capacité d'emprunt</strong> : découvrez combien vous pouvez emprunter</li>
+          <li>• <strong>PTZ {new Date().getFullYear()}</strong> : testez votre éligibilité au Prêt à Taux Zéro</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div className="bg-white rounded-2xl p-6 mb-10">
+      <h3 className="text-lg font-semibold text-slate-800 mb-4">Questions fréquentes sur le crédit immobilier</h3>
+      <div className="space-y-4">
+        <div>
+          <h4 className="font-medium text-slate-800 mb-1">Comment calculer sa mensualité de crédit immobilier ?</h4>
+          <p className="text-slate-600 text-sm">La mensualité dépend du montant emprunté, de la durée du prêt, du taux d'intérêt et de l'assurance emprunteur. Notre calculateur applique la formule bancaire standard utilisée en France.</p>
+        </div>
+        <div>
+          <h4 className="font-medium text-slate-800 mb-1">Quel est le taux d'endettement maximum en France ?</h4>
+          <p className="text-slate-600 text-sm">Les banques françaises appliquent un taux d'endettement maximal de 35 %, assurance incluse. Ce seuil est recommandé par le Haut Conseil de Stabilité Financière (HCSF).</p>
+        </div>
+        <div>
+          <h4 className="font-medium text-slate-800 mb-1">Pourquoi l'assurance emprunteur est-elle importante ?</h4>
+          <p className="text-slate-600 text-sm">L'assurance emprunteur représente une part significative du coût total du crédit (jusqu'à 30 %). Elle est obligatoire pour obtenir un prêt immobilier et protège l'emprunteur et la banque en cas de décès, invalidité ou perte d'emploi.</p>
+        </div>
+        <div>
+          <h4 className="font-medium text-slate-800 mb-1">Qu'est-ce que le reste à vivre ?</h4>
+          <p className="text-slate-600 text-sm">Le reste à vivre correspond au montant disponible chaque mois après paiement de toutes les charges fixes, y compris la mensualité du crédit. Les banques vérifient que ce montant est suffisant pour couvrir les dépenses courantes du foyer.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6">
+      <h3 className="text-lg font-semibold text-slate-800 mb-3">En bref</h3>
+      <p className="text-slate-700 leading-relaxed">
+        Ce calculateur de crédit immobilier gratuit permet aux particuliers français de simuler leur projet d'achat immobilier. Il calcule les mensualités, la capacité d'emprunt maximale et le taux d'endettement selon les règles bancaires en vigueur en France. L'outil intègre également une simulation du Prêt à Taux Zéro (PTZ) {new Date().getFullYear()} pour les primo-accédants éligibles. Tous les calculs prennent en compte l'assurance emprunteur et les frais de notaire.
+      </p>
+    </div>
+    
+  </div>
+</section>
         
         {/* Footer explicatif */}
         <footer className="mt-12 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
