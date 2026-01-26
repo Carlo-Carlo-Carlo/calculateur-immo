@@ -1722,6 +1722,35 @@ useEffect(() => {
           </div>
         )}
 
+{/* Section Guides pratiques */}
+<section className="bg-slate-50 border-t border-slate-200 py-12 px-4">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">Guides pratiques du crédit immobilier</h2>
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <Link to="/calcul-capacite-emprunt" className="bg-white rounded-xl p-5 border border-slate-200 hover:border-blue-300 hover:shadow-md transition group">
+        <h3 className="font-semibold text-slate-900 group-hover:text-blue-600 transition mb-2">Capacité d'emprunt</h3>
+        <p className="text-sm text-slate-600">Comment calculer le montant maximum que vous pouvez emprunter ?</p>
+      </Link>
+      <Link to="/taux-endettement-35-pourcent" className="bg-white rounded-xl p-5 border border-slate-200 hover:border-blue-300 hover:shadow-md transition group">
+        <h3 className="font-semibold text-slate-900 group-hover:text-blue-600 transition mb-2">Taux d'endettement</h3>
+        <p className="text-sm text-slate-600">Comprendre la règle des 35% imposée par les banques.</p>
+      </Link>
+      <Link to="/calcul-reste-a-vivre" className="bg-white rounded-xl p-5 border border-slate-200 hover:border-blue-300 hover:shadow-md transition group">
+        <h3 className="font-semibold text-slate-900 group-hover:text-blue-600 transition mb-2">Reste à vivre</h3>
+        <p className="text-sm text-slate-600">Calculer ce qu'il vous reste après le paiement des charges.</p>
+      </Link>
+      <Link to="/simulation-ptz-2026" className="bg-white rounded-xl p-5 border border-slate-200 hover:border-blue-300 hover:shadow-md transition group">
+        <h3 className="font-semibold text-slate-900 group-hover:text-blue-600 transition mb-2">PTZ {new Date().getFullYear()}</h3>
+        <p className="text-sm text-slate-600">Conditions et simulation du Prêt à Taux Zéro.</p>
+      </Link>
+      <Link to="/frais-notaire-immobilier" className="bg-white rounded-xl p-5 border border-slate-200 hover:border-blue-300 hover:shadow-md transition group">
+        <h3 className="font-semibold text-slate-900 group-hover:text-blue-600 transition mb-2">Frais de notaire</h3>
+        <p className="text-sm text-slate-600">Estimer les frais de notaire selon le type de bien.</p>
+      </Link>
+    </div>
+  </div>
+</section>
+        
         {/* Section SEO */}
 <section className="bg-white border-t border-slate-200 py-12 px-4">
   <div className="max-w-4xl mx-auto">
@@ -1874,21 +1903,43 @@ useEffect(() => {
         </footer>
       </main>
 
-      <footer className="bg-slate-800 text-slate-300 py-8 px-4 mt-12">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm mb-3">
-            Simulateur de crédit immobilier à titre indicatif
-          </p>
-          <div className="flex justify-center gap-4 text-sm">
-            <Link to="/mentions-legales" className="hover:text-white transition">Mentions légales</Link>
-            <span>•</span>
-            <Link to="/politique-confidentialite" className="hover:text-white transition">Politique de confidentialité</Link>
-          </div>
-          <p className="text-xs text-slate-500 mt-4">
-            Les simulations ne constituent ni une offre de crédit, ni un engagement contractuel.
-          </p>
-        </div>
-      </footer>
+<footer className="bg-slate-800 text-slate-300 py-10 px-4 mt-12">
+  <div className="max-w-4xl mx-auto">
+    <div className="grid md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <h3 className="text-white font-semibold mb-3">Guides pratiques</h3>
+        <ul className="space-y-2 text-sm">
+          <li><Link to="/calcul-capacite-emprunt" className="hover:text-white transition">Calculer sa capacité d'emprunt</Link></li>
+          <li><Link to="/taux-endettement-35-pourcent" className="hover:text-white transition">Taux d'endettement : règle des 35%</Link></li>
+          <li><Link to="/calcul-reste-a-vivre" className="hover:text-white transition">Calculer son reste à vivre</Link></li>
+          <li><Link to="/simulation-ptz-2026" className="hover:text-white transition">Simulation PTZ {new Date().getFullYear()}</Link></li>
+          <li><Link to="/frais-notaire-immobilier" className="hover:text-white transition">Frais de notaire immobilier</Link></li>
+        </ul>
+      </div>
+      <div>
+        <h3 className="text-white font-semibold mb-3">Simulateurs</h3>
+        <ul className="space-y-2 text-sm">
+          <li><Link to="/" className="hover:text-white transition">Calcul de mensualités</Link></li>
+          <li><Link to="/" className="hover:text-white transition">Capacité d'emprunt</Link></li>
+          <li><Link to="/" className="hover:text-white transition">Éligibilité PTZ</Link></li>
+        </ul>
+      </div>
+      <div>
+        <h3 className="text-white font-semibold mb-3">Informations</h3>
+        <ul className="space-y-2 text-sm">
+          <li><Link to="/mentions-legales" className="hover:text-white transition">Mentions légales</Link></li>
+          <li><Link to="/politique-confidentialite" className="hover:text-white transition">Politique de confidentialité</Link></li>
+        </ul>
+      </div>
+    </div>
+    <div className="border-t border-slate-700 pt-6 text-center">
+      <p className="text-sm mb-2">Simulateur de crédit immobilier à titre indicatif</p>
+      <p className="text-xs text-slate-500">
+        Les simulations ne constituent ni une offre de crédit, ni un engagement contractuel.
+      </p>
+    </div>
+  </div>
+</footer>
       
       <LeadForm 
         isOpen={showLeadForm} 
