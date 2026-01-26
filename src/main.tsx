@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App'
 import { MentionsLegales, PolitiqueConfidentialite } from './LegalPages'
+import CapaciteEmprunt from './pages/CapaciteEmprunt'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -12,6 +13,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<App />} />
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+        <Route path="/calcul-capacite-emprunt" element={<CapaciteEmprunt />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
