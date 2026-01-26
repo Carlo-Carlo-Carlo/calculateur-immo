@@ -1918,6 +1918,7 @@ useEffect(() => {
           <li><Link to="/calcul-reste-a-vivre" className="hover:text-white transition">Calculer son reste à vivre</Link></li>
           <li><Link to="/simulation-ptz-2026" className="hover:text-white transition">Simulation PTZ {new Date().getFullYear()}</Link></li>
           <li><Link to="/frais-notaire-immobilier" className="hover:text-white transition">Frais de notaire immobilier</Link></li>
+          <li><Link to="/assurance-emprunteur" className="hover:text-white transition">Assurance emprunteur</Link></li>
         </ul>
       </div>
       <div>
