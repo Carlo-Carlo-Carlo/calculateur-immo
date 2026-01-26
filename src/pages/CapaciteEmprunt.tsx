@@ -161,12 +161,7 @@ export default function CapaciteEmprunt() {
               </Link>
               
              <Link
-  to="/"
-  onClick={() => {
-    setTimeout(() => {
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }, 100);
-  }}
+  to="/?formulaire=open"
   className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-green-500 text-white rounded-xl font-semibold hover:bg-green-600 transition shadow-lg"
 >
   <Phone className="w-5 h-5" />
