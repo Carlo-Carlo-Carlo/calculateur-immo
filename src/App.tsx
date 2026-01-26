@@ -716,6 +716,16 @@ const refuseCookies = () => {
   localStorage.setItem('cookies-accepted', 'false');
   setShowCookieBanner(false);
 };
+
+// Ouvrir le formulaire si paramètre URL présent
+useEffect(() => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('formulaire') === 'open') {
+    setShowLeadForm(true);
+    // Nettoyer l'URL
+    window.history.replaceState({}, '', '/');
+  }
+}, []);
   
   // ============================================================================
   // CALCULS MODE MENSUALITÉ
