@@ -5,6 +5,7 @@ import './index.css'
 import App from './App'
 import { MentionsLegales, PolitiqueConfidentialite } from './LegalPages'
 import CapaciteEmprunt from './pages/CapaciteEmprunt'
+import TauxEndettement from './pages/TauxEndettement'
 
 // Composant pour scroll en haut à chaque changement de page
 function ScrollToTop() {
