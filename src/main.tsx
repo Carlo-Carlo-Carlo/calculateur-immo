@@ -8,6 +8,7 @@ import CapaciteEmprunt from './pages/CapaciteEmprunt'
 import TauxEndettement from './pages/TauxEndettement'
 import ResteAVivre from './pages/ResteAVivre'
 import SimulationPTZ from './pages/SimulationPTZ'
+import FraisNotaire from './pages/FraisNotaire'
 
 // Composant pour scroll en haut à chaque changement de page
 function ScrollToTop() {
@@ -32,6 +33,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/taux-endettement-35-pourcent" element={<TauxEndettement />} />
         <Route path="/calcul-reste-a-vivre" element={<ResteAVivre />} />
         <Route path="/simulation-ptz-2026" element={<SimulationPTZ />} />
+        <Route path="/frais-notaire-immobilier" element={<FraisNotaire />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
