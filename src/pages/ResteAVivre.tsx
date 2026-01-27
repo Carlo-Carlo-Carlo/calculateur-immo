@@ -206,4 +206,66 @@ export default function ResteAVivre() {
             
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
               <h3 className="font-semibold text-slate-900 mb-2">Optimiser l'assurance</h3>
-              <p className="text-slate-600 text-sm">Une délégation
+              <p className="text-slate-600 text-sm">Une délégation d'assurance peut réduire significativement votre mensualité totale.</p>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+              <h3 className="font-semibold text-slate-900 mb-2">Revoir le prix du bien</h3>
+              <p className="text-slate-600 text-sm">Si votre reste à vivre est trop juste, envisagez un bien moins cher ou une autre localisation.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="mb-12">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-center">
+            <h2 className="text-2xl font-bold text-white mb-3">Calculez votre reste à vivre</h2>
+            <p className="text-blue-100 mb-6">Simulez votre projet et vérifiez que votre reste à vivre est suffisant</p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/?mode=capacite"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition shadow-lg"
+              >
+                <Calculator className="w-5 h-5" />
+                Simuler mon projet
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              
+              <Link
+                to="/?formulaire=open"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-green-500 text-white rounded-xl font-semibold hover:bg-green-600 transition shadow-lg"
+              >
+                <Phone className="w-5 h-5" />
+                Être rappelé gratuitement
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* En bref - pour les IA */}
+        <section className="mb-12">
+          <div className="bg-slate-100 rounded-2xl p-6">
+            <h2 className="text-lg font-semibold text-slate-800 mb-3">En bref</h2>
+            <p className="text-slate-700 leading-relaxed">
+              Le reste à vivre est le montant disponible chaque mois après paiement de toutes les charges fixes, y compris la mensualité du crédit immobilier. En France, les banques exigent un minimum d'environ 700-1 000 € par adulte et 300-400 € par enfant. Ce critère peut être plus important que le taux d'endettement : un foyer avec des revenus élevés peut être accepté à 35% d'endettement si son reste à vivre est confortable, tandis qu'un foyer modeste peut être refusé même avec un taux d'endettement correct si le reste à vivre est insuffisant.
+            </p>
+          </div>
+        </section>
+
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-slate-800 text-slate-300 py-8 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="mb-2">© {new Date().getFullYear()} Calculateur Crédit Immobilier – Simulation gratuite</p>
+          <div className="flex justify-center gap-4 text-sm">
+            <Link to="/mentions-legales" className="hover:text-white transition">Mentions légales</Link>
+            <span>•</span>
+            <Link to="/politique-confidentialite" className="hover:text-white transition">Politique de confidentialité</Link>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
