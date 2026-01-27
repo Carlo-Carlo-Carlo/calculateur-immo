@@ -27,6 +27,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
         <Route path="/calcul-capacite-emprunt" element={<CapaciteEmprunt />} />
+        <Route path="/taux-endettement-35-pourcent" element={<TauxEndettement />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
