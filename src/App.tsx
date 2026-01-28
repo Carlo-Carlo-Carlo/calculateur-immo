@@ -697,11 +697,10 @@ export default function CalculateurPretImmobilier() {
 const [showLeadForm, setShowLeadForm] = useState(false);
 const [showCookieBanner, setShowCookieBanner] = useState(() => {
   return localStorage.getItem('cookies-accepted') === null;
-});
 const acceptCookies = () => {
   localStorage.setItem('cookies-accepted', 'true');
   setShowCookieBanner(false);
-  // Charger Google Analytics
+  // Charger Google Analytics + Google Ads
   const script = document.createElement('script');
   script.async = true;
   script.src = 'https://www.googletagmanager.com/gtag/js?id=G-KS6CDBW4CP';
@@ -710,6 +709,7 @@ const acceptCookies = () => {
   function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
   gtag('js', new Date());
   gtag('config', 'G-KS6CDBW4CP');
+  gtag('config', 'AW-17912156444');
 };
 
 const refuseCookies = () => {
