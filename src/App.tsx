@@ -303,12 +303,28 @@ resteAVivre: resteAVivreCalc,
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(leadData)
   });
-  console.log('=== NOUVEAU LEAD ===');
-  console.log(JSON.stringify(leadData, null, 2));
-  console.log('====================');
-  setIsSubmitted(true);
+  });
+      
+      console.log('=== NOUVEAU LEAD ===');
+      console.log(JSON.stringify(leadData, null, 2));
+      console.log('====================');
       setIsSubmitted(true);
+
+      // Envoyer la conversion Google Ads
+      if (typeof (window as any).gtag === 'function') {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-17912156444/tLfOCIObnu4bEJyil91C',
+          'value': 50.0,
+          'currency': 'EUR'
+        });
+      }
+
     } catch (err) {
+      console.error('Erreur envoi lead:', err);
+      setError('Une erreur est survenue. Veuillez réessayer.');
+    } finally {
+      setIsSubmitting(false);
+    }
       console.error('Erreur envoi lead:', err);
       setError('Une erreur est survenue. Veuillez réessayer.');
     } finally {
