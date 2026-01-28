@@ -703,18 +703,24 @@ export default function CalculateurPretImmobilier() {
   const [inclureAssurancePtz, setInclureAssurancePtz] = useState(true);
   const [tauxAssurancePtz, setTauxAssurancePtz] = useState(0.34);
 
-  // État formulaire lead
+ // État formulaire lead
 const [showLeadForm, setShowLeadForm] = useState(false);
+
+// Cookie banner: affiché uniquement si pas encore de choix
 const [showCookieBanner, setShowCookieBanner] = useState(() => {
   return localStorage.getItem('cookies-accepted') === null;
+});
+
 const acceptCookies = () => {
   localStorage.setItem('cookies-accepted', 'true');
   setShowCookieBanner(false);
+
   // Charger Google Analytics + Google Ads
   const script = document.createElement('script');
   script.async = true;
   script.src = 'https://www.googletagmanager.com/gtag/js?id=G-KS6CDBW4CP';
   document.head.appendChild(script);
+
   (window as any).dataLayer = (window as any).dataLayer || [];
   function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
   gtag('js', new Date());
@@ -726,6 +732,7 @@ const refuseCookies = () => {
   localStorage.setItem('cookies-accepted', 'false');
   setShowCookieBanner(false);
 };
+
 
 // Ouvrir le formulaire si paramètre URL présent
 useEffect(() => {
