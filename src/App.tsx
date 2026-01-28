@@ -303,7 +303,6 @@ resteAVivre: resteAVivreCalc,
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(leadData)
   });
-  });
       
       console.log('=== NOUVEAU LEAD ===');
       console.log(JSON.stringify(leadData, null, 2));
@@ -320,11 +319,6 @@ resteAVivre: resteAVivreCalc,
       }
 
     } catch (err) {
-      console.error('Erreur envoi lead:', err);
-      setError('Une erreur est survenue. Veuillez réessayer.');
-    } finally {
-      setIsSubmitting(false);
-    }
       console.error('Erreur envoi lead:', err);
       setError('Une erreur est survenue. Veuillez réessayer.');
     } finally {
