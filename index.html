@@ -102,18 +102,20 @@
 }
 </script>
     
-   <!-- Google Analytics - Chargé uniquement si consentement -->
+   <!-- Google Analytics + Google Ads - Chargé uniquement si consentement -->
 <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  
   if (localStorage.getItem('cookies-accepted') === 'true') {
     var script = document.createElement('script');
     script.async = true;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=G-KS6CDBW4CP';
     document.head.appendChild(script);
     
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-KS6CDBW4CP');
+    gtag('config', 'AW-17912156444');
   }
 </script>
   </head>
