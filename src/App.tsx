@@ -1768,6 +1768,10 @@ useEffect(() => {
   <h3 className="font-semibold text-slate-900 group-hover:text-blue-600 transition mb-2">Assurance emprunteur</h3>
   <p className="text-sm text-slate-600">Comprendre et optimiser le coût de votre assurance de prêt.</p>
 </Link>
+      <Link to="/changer-assurance-emprunteur" className="bg-white rounded-xl p-5 border border-slate-200 hover:border-blue-300 hover:shadow-md transition group">
+  <h3 className="font-semibold text-slate-900 group-hover:text-blue-600 transition mb-2">Changer d'assurance</h3>
+  <p className="text-sm text-slate-600">Comment résilier et économiser jusqu'à 15 000 €.</p>
+</Link>
     </div>
   </div>
 </section>
