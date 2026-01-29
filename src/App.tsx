@@ -1054,7 +1054,12 @@ useEffect(() => {
                 <Home className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-slate-900">Calculateur Crédit Immobilier {new Date().getFullYear()} – Simulation Gratuite</h1>
+                <h1 className="text-xl font-bold text-slate-900">
+  Calculateur Crédit Immobilier {new Date().getFullYear()} – Simulation Gratuite
+</h1>
+<p className="text-slate-600 text-sm mt-2">
+  Simulez votre crédit immobilier gratuitement : calculez vos mensualités, votre capacité d'emprunt et votre éligibilité au PTZ {new Date().getFullYear()}. Résultats instantanés basés sur les taux actuels.
+</p>
                 <p className="text-xs text-slate-500">Simulation prêt • Taux {GRILLE_TAUX.dateMAJ}</p>
               </div>
             </div>
