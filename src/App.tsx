@@ -1940,6 +1940,7 @@ useEffect(() => {
           <li><Link to="/simulation-ptz-2026" className="hover:text-white transition">Simulation PTZ {new Date().getFullYear()}</Link></li>
           <li><Link to="/frais-notaire-immobilier" className="hover:text-white transition">Frais de notaire immobilier</Link></li>
           <li><Link to="/assurance-emprunteur" className="hover:text-white transition">Assurance emprunteur</Link></li>
+          <li><Link to="/changer-assurance-emprunteur" className="hover:text-white transition">Changer d'assurance emprunteur</Link></li>
         </ul>
       </div>
       <div>
