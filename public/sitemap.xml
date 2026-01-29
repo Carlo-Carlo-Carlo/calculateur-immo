@@ -2,43 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://calculateurcreditimmobilier.fr/</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://calculateurcreditimmobilier.fr/calcul-capacite-emprunt</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://calculateurcreditimmobilier.fr/taux-endettement-35-pourcent</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://calculateurcreditimmobilier.fr/calcul-reste-a-vivre</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://calculateurcreditimmobilier.fr/simulation-ptz-2026</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://calculateurcreditimmobilier.fr/frais-notaire-immobilier</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://calculateurcreditimmobilier.fr/assurance-emprunteur</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculateurcreditimmobilier.fr/changer-assurance-emprunteur</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -54,10 +60,4 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-  <url>
-  <loc>https://calculateurcreditimmobilier.fr/changer-assurance-emprunteur</loc>
-  <lastmod>2026-01-28</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
 </urlset>
