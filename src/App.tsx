@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Calculator, Wallet, Home, TrendingUp, AlertCircle, CheckCircle, Info, X, User, Phone, Mail, MapPin } from 'lucide-react';
+import { Calculator, Wallet, Home, TrendingUp, AlertCircle, CheckCircle, Info, X, User, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // ============================================================================
