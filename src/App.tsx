@@ -1981,7 +1981,7 @@ return (
   </div>
 </footer>
 
-    {/* CTA Sticky */}
+      {/* CTA Sticky */}
       <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-gradient-to-t from-white via-white to-transparent pointer-events-none">
         <div className="max-w-md mx-auto pointer-events-auto">
           <button
@@ -1995,15 +1995,14 @@ return (
         </div>
       </div>
 
-    </div>
-  );
-}
-    
+      {/* Lead Form Modal */}
       <LeadForm 
         isOpen={showLeadForm} 
         onClose={() => setShowLeadForm(false)} 
         calculatorData={getCalculatorDataForLead()}
       />
+
+      {/* Cookie Banner */}
       {showCookieBanner && (
         <div className="fixed bottom-0 left-0 right-0 bg-slate-900 text-white p-4 z-50 shadow-lg">
           <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -2028,6 +2027,7 @@ return (
           </div>
         </div>
       )}
+
     </div>
   );
 }
