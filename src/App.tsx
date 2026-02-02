@@ -1041,69 +1041,77 @@ useEffect(() => {
   };
 
   // ============================================================================
-  // RENDU
-  // ============================================================================
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-40">
-        <div className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-200">
-                <Home className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-slate-900">
-  Calculateur Crédit Immobilier {new Date().getFullYear()} – Simulation Gratuite
-</h1>
-<p className="text-slate-600 text-sm mt-2">
-  Simulez votre crédit immobilier gratuitement : calculez vos mensualités, votre capacité d'emprunt et votre éligibilité au PTZ {new Date().getFullYear()}. Résultats instantanés basés sur les taux actuels.
-</p>
-                <p className="text-xs text-slate-500">Simulation prêt • Taux {GRILLE_TAUX.dateMAJ}</p>
-              </div>
+// RENDU
+// ============================================================================
+return (
+  <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    {/* Header compact - sticky */}
+    <header className="bg-white/80 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-40">
+      <div className="max-w-6xl mx-auto px-4 py-3">
+        <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-200">
+              <Home className="w-5 h-5 text-white" />
             </div>
-            
-            <nav className="flex bg-slate-100 rounded-xl p-1 gap-1">
-              <button 
-                onClick={() => setMode('mensualite')} 
-                className={`px-4 py-2 rounded-lg font-medium text-sm transition-all flex items-center gap-2 ${
-                  mode === 'mensualite' 
-                    ? 'bg-white text-blue-600 shadow-sm' 
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Calculator className="w-4 h-4" />
-                <span className="text-xs sm:text-sm">Mensualités</span>
-              </button>
-              <button 
-                onClick={() => setMode('capacite')} 
-                className={`px-4 py-2 rounded-lg font-medium text-sm transition-all flex items-center gap-2 ${
-                  mode === 'capacite' 
-                    ? 'bg-white text-blue-600 shadow-sm' 
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Wallet className="w-4 h-4" />
-                <span className="text-xs sm:text-sm">Capacité</span>
-              </button>
-              <button 
-                onClick={() => setMode('ptz')} 
-                className={`px-4 py-2 rounded-lg font-medium text-sm transition-all flex items-center gap-2 ${
-                  mode === 'ptz' 
-                    ? 'bg-white text-blue-600 shadow-sm' 
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <TrendingUp className="w-4 h-4" />
-                <span className="text-xs sm:text-sm">PTZ</span>
-              </button>
-            </nav>
-          </div>
+            <div>
+              <p className="text-lg font-bold text-slate-900">Calculateur Crédit Immobilier</p>
+              <p className="text-xs text-slate-500">Simulation prêt • Taux {GRILLE_TAUX.dateMAJ}</p>
+            </div>
+          </Link>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <main className="max-w-6xl mx-auto px-4 py-8">
+    {/* Section titre + onglets - NE suit PAS le scroll */}
+    <section className="bg-white border-b border-slate-200">
+      <div className="max-w-6xl mx-auto px-4 py-6">
+        <h1 className="text-xl md:text-2xl font-bold text-slate-900">
+          Calculateur Crédit Immobilier {new Date().getFullYear()} – Simulation Gratuite
+        </h1>
+        <p className="text-slate-600 text-sm mt-2 mb-6">
+          Simulez votre crédit immobilier gratuitement : calculez vos mensualités, votre capacité d'emprunt et votre éligibilité au PTZ {new Date().getFullYear()}. Résultats instantanés basés sur les taux actuels.
+        </p>
+        
+        {/* Onglets */}
+        <nav className="flex bg-slate-100 rounded-xl p-1 gap-1 w-fit">
+          <button 
+            onClick={() => setMode('mensualite')} 
+            className={`px-4 py-2 rounded-lg font-medium text-sm transition-all flex items-center gap-2 ${
+              mode === 'mensualite' 
+                ? 'bg-white text-blue-600 shadow-sm' 
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <Calculator className="w-4 h-4" />
+            <span className="text-xs sm:text-sm">Mensualités</span>
+          </button>
+          <button 
+            onClick={() => setMode('capacite')} 
+            className={`px-4 py-2 rounded-lg font-medium text-sm transition-all flex items-center gap-2 ${
+              mode === 'capacite' 
+                ? 'bg-white text-blue-600 shadow-sm' 
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <Wallet className="w-4 h-4" />
+            <span className="text-xs sm:text-sm">Capacité</span>
+          </button>
+          <button 
+            onClick={() => setMode('ptz')} 
+            className={`px-4 py-2 rounded-lg font-medium text-sm transition-all flex items-center gap-2 ${
+              mode === 'ptz' 
+                ? 'bg-white text-blue-600 shadow-sm' 
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <TrendingUp className="w-4 h-4" />
+            <span className="text-xs sm:text-sm">PTZ</span>
+          </button>
+        </nav>
+      </div>
+    </section>
+
+    <main className="max-w-6xl mx-auto px-4 py-8">
         
         {/* ================================================================== */}
         {/* MODE MENSUALITÉ */}
