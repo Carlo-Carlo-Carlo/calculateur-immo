@@ -1980,7 +1980,25 @@ return (
     </div>
   </div>
 </footer>
-      
+
+    {/* CTA Sticky */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-gradient-to-t from-white via-white to-transparent pointer-events-none">
+        <div className="max-w-md mx-auto pointer-events-auto">
+          <button
+            onClick={() => setShowLeadForm(true)}
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg shadow-green-200 transition-all flex items-center justify-center gap-2"
+          >
+            <Phone className="w-5 h-5" />
+            Être rappelé gratuitement
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+    </div>
+  );
+}
+    
       <LeadForm 
         isOpen={showLeadForm} 
         onClose={() => setShowLeadForm(false)} 
