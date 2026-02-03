@@ -1337,16 +1337,13 @@ return (
                 </div>
               </div>
 
-              {/* CTA Lead */}
+{/* CTA Lead */}
 <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-200 p-6 shadow-lg shadow-blue-100">
   <h3 className="text-xl font-bold text-slate-900 mb-2">
-    {resultats.tauxEndettementEstime <= 35 
-      ? "Selon cette simulation, votre projet semble finançable"
-      : "Faites analyser votre dossier par un expert"
-    }
+    Besoin d'un accompagnement personnalisé ?
   </h3>
   <p className="text-sm text-slate-600 mb-4">
-    Mensualité estimée : <span className="font-semibold text-slate-900">{fmt(resultats.mensualiteTotale)}</span> • Taux d'endettement : <span className="font-semibold text-slate-900">{resultats.tauxEndettementEstime.toFixed(1)}%</span>
+    Mensualité estimée : <span className="font-semibold text-slate-900">{fmt(resultats.mensualiteTotale)}</span> • Durée : <span className="font-semibold text-slate-900">{duree} ans</span>
   </p>
   <button
     onClick={() => setShowLeadForm(true)}
